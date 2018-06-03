@@ -27,7 +27,6 @@ const Layout = ({ children, data }) => (
     </div>
   </div>
 )
-
 Layout.propTypes = {
   children: PropTypes.func,
 }
@@ -41,6 +40,7 @@ export const query = graphql`
         title
       }
     }
+    # Interesting, but what does it do when there are multiple images that match this regex?
     background: imageSharp(id: { regex: "/bg.jpeg/" }) {
       sizes(maxWidth: 1240) {
         # Can set maxHeight, grayscale, quality, other things..

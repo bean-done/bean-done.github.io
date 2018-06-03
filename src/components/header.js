@@ -16,7 +16,6 @@ import logo from '../images/logo.svg'
  */
 
 const HeaderWrapper = styled.div`
-  background: #56cbf9;
   margin-bottom: 1.45rem;
   overflow: hidden;
   position: relative;
