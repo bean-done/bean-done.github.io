@@ -16,13 +16,20 @@ module.exports = {
         path: `${__dirname}/src/images`,
       },
     },
-    'gatsby-transformer-remark', // for markdown files being read
+
     {
       // Tell Gatsby that we should be able to query markdown files from the specified directory
       resolve: 'gatsby-source-filesystem',
       options: {
         name: 'src',
         path: `${__dirname}/src/`,
+      },
+    },
+    {
+      // for markdown files being read
+      resolve: 'gatsby-transformer-remark',
+      options: {
+        excerpt_separator: `<!-- end -->`,
       },
     },
   ],

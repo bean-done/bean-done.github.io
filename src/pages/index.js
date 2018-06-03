@@ -1,15 +1,14 @@
 import React from 'react'
 import Link from 'gatsby-link'
 
-const PostListing = () => <div>Hello</div>
+import PostListing from '../components/Posts/PostListing'
 
 const IndexPage = ({ data }) => (
   <div>
-    <p>{data.site.siteMetadata.title}</p>
-    <p>{data.site.siteMetadata.desc}</p>
-    {data.allMarkdownRemark.edges.map(({ node }) => {
-      return <PostListing post={node} />
-    })}
+    <h2>Posts</h2>
+    {data.allMarkdownRemark.edges.map(({ node }) => (
+      <PostListing key={node.id} post={node} />
+    ))}
   </div>
 )
 
@@ -36,6 +35,8 @@ export const query = graphql`
             date(formatString: "MMMM D, YYYY")
           }
           html # get the contents of the md file
+          id # unique id when mapping the posts in array
+          excerpt(pruneLength: 280) # excerpt from the post
         }
       }
     }
