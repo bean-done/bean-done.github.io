@@ -41,5 +41,11 @@ export const query = graphql`
         title
       }
     }
+    background: imageSharp(id: { regex: "/bg.jpeg/" }) {
+      sizes(maxWidth: 1240) {
+        # Can set maxHeight, grayscale, quality, other things..
+        ...GatsbyImageSharpSizes
+      }
+    }
   }
 `
