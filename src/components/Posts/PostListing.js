@@ -3,8 +3,10 @@ import Link from 'gatsby-link'
 
 const PostListing = ({ post }) => (
   <article>
-    <h3>{post.frontmatter.title}</h3>
     <span>{post.frontmatter.date}</span>
+    <h3>
+      <Link to={post.fields.slug}>{post.frontmatter.title}</Link>
+    </h3>
     <div>{post.excerpt}</div>
     {/* <div
       dangerouslySetInnerHTML={{

@@ -34,6 +34,9 @@ export const query = graphql`
             title
             date(formatString: "MMMM D, YYYY")
           }
+          fields {
+            slug
+          }
           html # get the contents of the md file
           id # unique id when mapping the posts in array
           excerpt(pruneLength: 280) # excerpt from the post
