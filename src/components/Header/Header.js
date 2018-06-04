@@ -17,6 +17,7 @@ import logo from '../../images/logo.svg'
  */
 
 const HeaderWrapper = styled.div`
+  background-color: #ff4989;
   margin-bottom: 1.45rem;
   overflow: hidden;
   position: relative;
@@ -37,6 +38,27 @@ const HeaderContainer = styled.div`
   padding: 1.45rem 1.0875rem;
   position: relative;
   z-index: 2;
+  display: flex;
+  justify-content: space-between;
+`
+
+const MainNav = styled.nav`
+  ul {
+    display: flex;
+    list-style: none;
+    li {
+      margin-left: 1rem;
+      font-family: Lato, Helvetica Neue, Helvetica, Arial, sans-serif;
+      a {
+        text-decoration: none;
+        color: #eff1f3;
+        padding-bottom: 0.5rem;
+        &:hover {
+          border-bottom: 3px solid #56cbf9;
+        }
+      }
+    }
+  }
 `
 
 export default class Header extends Component {
@@ -107,7 +129,7 @@ export default class Header extends Component {
               <img src={logo} alt="Logo" />
             </Link>
           </h1>
-          <nav>
+          <MainNav>
             <ul>
               <li>
                 <Link to="/">Home</Link>
@@ -116,7 +138,7 @@ export default class Header extends Component {
                 <Link to="/about">About</Link>
               </li>
             </ul>
-          </nav>
+          </MainNav>
         </HeaderContainer>
         <Img
           style={{
@@ -125,6 +147,7 @@ export default class Header extends Component {
             top: 0,
             height: '100%',
             width: '100%',
+            opacity: 0.3,
           }}
           sizes={data.background.sizes}
         />
