@@ -1,9 +1,11 @@
+const { HOME_PATH } = require('./constants')
+
 module.exports = {
   siteMetadata: {
     title: 'Gatsby Default Starter',
     desc: 'Description I put in here',
   },
-  pathPrefix: '/gatsby-test-site',
+  pathPrefix: HOME_PATH,
   plugins: [
     'gatsby-plugin-react-helmet',
     'gatsby-plugin-styled-components',

@@ -6,6 +6,8 @@ import Img from 'gatsby-image'
 
 import logo from '../../images/logo.svg'
 
+import { HEADER_PATH } from '../../../constants'
+
 /**
  * Brand colors:
  *
@@ -21,7 +23,7 @@ const HeaderWrapper = styled.div`
   margin-bottom: 1.45rem;
   overflow: hidden;
   position: relative;
-  height: ${({ isHome }) => (isHome ? '70vh' : '20vh')};
+  height: ${({ isLarge }) => (isLarge ? '70vh' : '20vh')};
   min-height: 9.4rem; /* Match up with the content inside it  */
   h1 {
     img {
@@ -66,7 +68,7 @@ const MainNav = styled.nav`
 export default class Header extends Component {
   headerShouldBeLarge(pathName) {
     const pathToCheck = pathName ? pathName : this.props.location.pathname
-    return pathToCheck === '/'
+    return pathToCheck === HEADER_PATH
   }
 
   componentDidUpdate(prevProps, prevState) {
@@ -113,14 +115,13 @@ export default class Header extends Component {
 
   render() {
     const { data, location } = this.props
-
     return (
       /* 
         Here we use findDOMNode to get the actual DOM element rather than the component. 
         This is necessary for working with the web animations API 
         */
       <HeaderWrapper
-        isHome={location.pathname === '/'}
+        isLarge={this.headerShouldBeLarge()}
         ref={wrapper => (this.wrapper = ReactDOM.findDOMNode(wrapper))}
       >
         <HeaderContainer>
