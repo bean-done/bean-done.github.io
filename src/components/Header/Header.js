@@ -17,14 +17,16 @@ import logo from '../../images/logo.svg'
  */
 
 const HeaderWrapper = styled.div`
-  background-color: #ff4989;
+  background-color: #56cbf9;
   margin-bottom: 1.45rem;
   overflow: hidden;
   position: relative;
   height: ${({ isHome }) => (isHome ? '70vh' : '20vh')};
+  min-height: 9.4rem; /* Match up with the content inside it  */
   h1 {
     img {
-      height: 80px;
+      height: 110px;
+      margin: 0;
       /* background-color: #262322;
       background-color: #262322aa;
       box-shadow: 4px 3px 30px #262322; */
