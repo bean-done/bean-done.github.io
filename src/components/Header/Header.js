@@ -20,7 +20,7 @@ const HeaderWrapper = styled.div`
   margin-bottom: 1.45rem;
   overflow: hidden;
   position: relative;
-  height: 70vh;
+  height: ${({ isHome }) => (isHome ? '70vh' : '20vh')};
   h1 {
     img {
       height: 80px;
@@ -41,6 +41,11 @@ const HeaderContainer = styled.div`
 
 export default class Header extends Component {
   componentDidUpdate(prevProps, prevState) {
+    const { location } = this.props
+    if (location.pathname === prevProps.location.pathname) {
+      // no need to animate, we are already there
+      return
+    }
     if (this.props.location.pathname === '/') {
       console.log('on home page')
       console.log(this.wrapper)
@@ -87,6 +92,7 @@ export default class Header extends Component {
         This is necessary for working with the web animations API 
         */
       <HeaderWrapper
+        isHome={location.pathname === '/'}
         ref={wrapper => (this.wrapper = ReactDOM.findDOMNode(wrapper))}
       >
         <HeaderContainer>
