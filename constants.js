@@ -1,4 +1,4 @@
-const HOME_PATH = '/gatsby-test-site'
+const HOME_PATH = ''
 // HEADER_PATH requires the trailing slash when reading locations using React router
 const HEADER_PATH = HOME_PATH + '/'
 

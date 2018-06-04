@@ -1,11 +1,10 @@
-const { HOME_PATH } = require('./constants')
+// const { HOME_PATH } = require('./constants')
 
 module.exports = {
   siteMetadata: {
     title: 'Gatsby Default Starter',
     desc: 'Description I put in here',
   },
-  pathPrefix: HOME_PATH,
   plugins: [
     'gatsby-plugin-react-helmet',
     'gatsby-plugin-styled-components',
@@ -37,3 +36,5 @@ module.exports = {
     },
   ],
 }
+
+// pathPrefix: HOME_PATH,
