@@ -23,7 +23,7 @@ export const query = graphql`
       }
     }
     # Using markdown remark...
-    allMarkdownRemark {
+    allMarkdownRemark(sort: { fields: [frontmatter___date], order: DESC }) {
       # query for all markdown files
       edges {
         # target the list
