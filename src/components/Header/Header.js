@@ -79,8 +79,6 @@ export default class Header extends Component {
       return
     }
     if (largeHeader) {
-      console.log('on home page')
-      console.log(this.wrapper)
       // On home page, animate the header open
       this.wrapper.animate(
         [
@@ -96,8 +94,6 @@ export default class Header extends Component {
         }
       )
     } else {
-      console.log('on other page')
-      console.log(this.wrapper)
       // not the home page, animate the header closed
       this.wrapper.animate(
         [
