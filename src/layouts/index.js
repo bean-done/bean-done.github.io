@@ -5,7 +5,7 @@ import Helmet from 'react-helmet'
 import Header from '../components/Header/Header'
 import './index.css'
 
-const Layout = ({ children, data }) => (
+const TemplateWrapper = ({ children, data, location }) => (
   <div>
     <Helmet
       title={data.site.siteMetadata.title}
@@ -14,7 +14,7 @@ const Layout = ({ children, data }) => (
         { name: 'keywords', content: 'sample, something' },
       ]}
     />
-    <Header data={data} />
+    <Header data={data} location={location} />
     <div
       style={{
         margin: '0 auto',
@@ -27,11 +27,11 @@ const Layout = ({ children, data }) => (
     </div>
   </div>
 )
-Layout.propTypes = {
+TemplateWrapper.propTypes = {
   children: PropTypes.func,
 }
 
-export default Layout
+export default TemplateWrapper
 
 export const query = graphql`
   query LayoutQuery {
