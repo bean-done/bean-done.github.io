@@ -62,13 +62,21 @@ const MainNav = styled.nav`
 `
 
 export default class Header extends Component {
+  headerShouldBeLarge(pathName) {
+    const pathToCheck = pathName ? pathName : this.props.location.pathname
+    return pathToCheck === '/'
+  }
+
   componentDidUpdate(prevProps, prevState) {
     const { location } = this.props
-    if (location.pathname === prevProps.location.pathname) {
+
+    const largeHeader = this.headerShouldBeLarge()
+
+    if (this.headerShouldBeLarge(prevProps.location.pathname) === largeHeader) {
       // no need to animate, we are already there
       return
     }
-    if (this.props.location.pathname === '/') {
+    if (largeHeader) {
       console.log('on home page')
       console.log(this.wrapper)
       // On home page, animate the header open
